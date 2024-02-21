@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thống kê nhà cung cấp theo doanh thu</title>
+</head>
+<body>
+<div class="container mt-5">
+  <div class="row">
+    <form class="row justify-content-around" action="/thuc-hien-thong-ke" method="POST">
+        <div class="row justify-content-around">
+            <label>Ngày bắt đầu:</label>
+            <input type="date" name="ngay-bat-dau">
+            <label>Ngày kết thúc:</label>
+            <input type="date" name="ngay-ket-thuc">
+        </div>
+        <div class="justify-content-center">
+            <button type="submit" class="bg-success">Thống kê</button>
+        </div>
+    </form>
+  </div>
+
+  <div class="row">
+      <div class="col-8">
+          <table class="table" >
+              <thead class="bg-dark">
+              <tr>
+                  <th>ID</th>
+                  <th>Tên</th>
+                  <th>Số điện thoại</th>
+                  <th>Email</th>
+                  <th>Tổng doanh thu</th>
+              </tr>
+              </thead>
+              <tbody class="bg-light">
+              <tr th:each="tk : ${session.thongKes}">
+                  <th>[[ ${tk.nhaCungCap.id} ]]</th>
+                  <th>[[ ${tk.nhaCungCap.ten} ]]</th>
+                  <th>[[ ${tk.nhaCungCap.soDienThoai} ]]</th>
+                  <th>[[ ${tk.nhaCungCap.qmail} ]]</th>
+                  <th>[[ ${tk.tongDoanhThu} ]]</th>
+              </tr>
+              </tbody>
+      </div>
+      <div class="col-4">
+
+      </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>
